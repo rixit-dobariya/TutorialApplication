@@ -1,0 +1,40 @@
+﻿@model Category
+
+<form method="post">
+	<div class="border p-5 mt-4">
+		<div class="row pb-2">
+			<h2>
+				Create new category
+				<hr />
+			</h2>
+		</div>
+		<div asp-validation-summary="All"></div>@*Will display all validations*@
+		<div asp-validation-summary="ModelOnly"></div>@*Will not display property validations*@
+		<div asp-validation-summary="None"></div>@*will not display any validations*@
+		<div class="row p-1 mb-2">
+			<label asp-for="Name" class="p-0 mb-1"></label>
+			<input asp-for="Name" class="form-control" />
+			<span asp-validation-for="Name" class="text-danger"></span>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="DisplayOrder" class="p-0 mb-1"></label>
+			<input asp-for="DisplayOrder" class="form-control" />
+			<span asp-validation-for="DisplayOrder" class="text-danger"></span>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<button type="submit" class="btn btn-dark form-control">Add new Category</button>
+			</div>
+			<div class="col-6">
+				<a asp-controller="Category" asp-action="Index" class="btn btn-outline-info form-control">Go back to list</a>
+			</div>
+		</div>
+			
+		
+	</div>
+</form>
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}

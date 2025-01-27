@@ -1,0 +1,38 @@
+﻿@page
+@model TutorialApplicationRazor.Pages.Categories.IndexModel
+
+<div class="container">
+	<div class="row">
+		<div class="col-6">
+			<h1>Category List</h1>
+		</div>
+		<div class="col-6">
+			<a class="btn btn-outline-primary" asp-page="/Categories/Create">Create New Category</a>
+		</div>
+	</div>
+	<table class="table">
+		<thead>
+			<tr>
+				<td>Category name</td>
+				<td>Display Order</td>
+				<td>Edit</td>
+				<td>Delete</td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach (var obj  in Model.CategoryList)
+			{
+				<tr>
+					<td>@obj.Name</td>
+					<td>@obj.DisplayOrder</td>
+					<td>
+						<a asp-page="/Categories/Edit" asp-route-id="@obj.Id" class="btn btn-dark">Edit</a>
+					</td>
+					<td>
+						<a asp-page="/Categories/Delete" asp-route-id="@obj.Id" class="btn btn-danger">Delete</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>
