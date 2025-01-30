@@ -1,4 +1,8 @@
 ﻿using Bulky.DataAccess.Respository.IRepository;
+using Bulky.Utility;
+using Microsoft.AspNetCore.Authorization;
+
+//using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore.Metadata.Internal;
@@ -7,8 +11,10 @@ using TutorialApplication.Models;
 
 namespace TutorialApplication.Areas.Admin.Controllers
 {
+
     [Area("Admin")]
-    public class CategoryController : Controller
+    [Authorize(Roles = "Admin")]
+    public class CategoryController : Microsoft.AspNetCore.Mvc.Controller
     {
         private IUnitOfWork _unitOfWork;
         public CategoryController(IUnitOfWork unitOfWork)
@@ -46,7 +52,7 @@ namespace TutorialApplication.Areas.Admin.Controllers
             if (ModelState.IsValid)
             {
                 _unitOfWork.CategoryRepository.Add(category); //here database entry would not have happened
-                _unitOfWork.CategoryRepository.Save(); // here change would be done
+                _unitOfWork.Save(); // here change would be done
                 return RedirectToAction("Index");
             }
             return View();
@@ -76,9 +82,8 @@ namespace TutorialApplication.Areas.Admin.Controllers
         {
             if (ModelState.IsValid)
             {
-                _unitOfWork.CategoryRepository.Update(category); //Will update the record based on the primary key
-                //if id is 0 then it will create new record with this object
-                _unitOfWork.CategoryRepository.Save();
+                _unitOfWork.CategoryRepository.Update(category);
+                _unitOfWork.Save();
                 return RedirectToAction("Index");
             }
             return View();
@@ -107,7 +112,7 @@ namespace TutorialApplication.Areas.Admin.Controllers
                 return NotFound();
             }
             _unitOfWork.CategoryRepository.Remove(category);
-            _unitOfWork.CategoryRepository.Save();
+            _unitOfWork.Save();
             return RedirectToAction("Index");
         }
     }

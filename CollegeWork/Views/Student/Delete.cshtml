@@ -1,0 +1,19 @@
+﻿@model Student
+<form method="post">
+    <div>
+        <h1>Update student</h1>
+    </div>
+    <div class="form-group">
+        <label asp-for="Name">Name</label>
+        <input type="text" class="form-control" asp-for="Name" placeholder="Enter name" disabled>
+    </div>
+    <div class="form-group">
+        <label asp-for="Branch">Branch</label>
+        <input type="text" class="form-control" asp-for="Branch" placeholder="Enter Branch" disabled>
+    </div>
+    <div class="form-group">
+        <label asp-for="RollNo">Roll No</label>
+        <input type="text" class="form-control" asp-for="RollNo" placeholder="Enter Roll No" disabled>
+    </div>
+    <button type="submit" class="btn btn-danger">Delete</button>
+</form>

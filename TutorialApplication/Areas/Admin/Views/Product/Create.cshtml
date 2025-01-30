@@ -1,0 +1,77 @@
+﻿
+@model ProductVM
+
+<form method="post">
+	<div class="border p-5 mt-4">
+		<div class="row pb-2">
+			<h2>
+				Create new product
+				<hr />
+			</h2>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="Product.Title" class="p-0 mb-1"></label>
+			<input asp-for="Product.Title" class="form-control" />
+			<span asp-validation-for="Product.Title" class="text-danger"></span>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="Product.Author" class="p-0 mb-1"></label>
+			<input asp-for="Product.Author" class="form-control" />
+			<span asp-validation-for="Product.Author" class="text-danger"></span>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="Product.ISBN" class="p-0 mb-1"></label>
+			<input asp-for="Product.ISBN" class="form-control" />
+			<span asp-validation-for="Product.ISBN" class="text-danger"></span>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="Product.Description" class="p-0 mb-1"></label>
+			<input asp-for="Product.Description" class="form-control" />
+			<span asp-validation-for="Product.Description" class="text-danger"></span>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="Product.ListPrice" class="p-0 mb-1"></label>
+			<input asp-for="Product.ListPrice" class="form-control" />
+			<span asp-validation-for="Product.ListPrice" class="text-danger"></span>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="Product.Price" class="p-0 mb-1"></label>
+			<input asp-for="Product.Price" class="form-control" />
+			<span asp-validation-for="Product.Price" class="text-danger"></span>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="Product.Price50" class="p-0 mb-1"></label>
+			<input asp-for="Product.Price50" class="form-control" />
+			<span asp-validation-for="Product.Price50" class="text-danger"></span>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="Product.Price100" class="p-0 mb-1"></label>
+			<input asp-for="Product.Price100" class="form-control" />
+			<span asp-validation-for="Product.Price100" class="text-danger"></span>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="Product.CategoryId" class="p-0 mb-1"></label>
+			<select asp-for="Product.CategoryId" class="form-control" asp-items="@Model.CategoryList"></select>
+				<option disabled>Select Category</option>
+			<span asp-validation-for="Product.CategoryId" class="text-danger"></span>
+		</div>
+		<div class="row p-1 mb-2">
+			<label asp-for="Product.ImageUrl" class="p-0 mb-1"></label>
+			<input asp-for="Product.ImageUrl" class="form-control" />
+			<span asp-validation-for="Product.ImageUrl" class="text-danger"></span>
+		</div>
+		<div class="row">
+			<div class="col-6">
+				<button type="submit" class="btn btn-dark form-control">Add new Product</button>
+			</div>
+			<div class="col-6">
+				<a asp-controller="Product" asp-action="Index" class="btn btn-outline-info form-control">Go back to list</a>
+			</div>
+		</div>
+	</div>
+</form>
+@section Scripts{
+	@{
+		<partial name="_ValidationScriptsPartial" />
+	}
+}
