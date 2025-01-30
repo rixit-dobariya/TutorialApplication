@@ -1,0 +1,5 @@
+Data tables: datatables.net
+toaster 
+sweet alert
+home page
+details page
