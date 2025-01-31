@@ -1,0 +1,26 @@
+﻿@model Student
+<form method="post">
+    <div class="form-group">
+        <label for="name">Student Name</label>
+        <input type="text" asp-for="Name" class="form-control" id="name" placeholder="Enter name">
+    </div>
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" asp-for="Email" class="form-control" id="email" placeholder="Enter email">
+    </div>
+    <div class="form-group">
+        <label for="age">Age</label>
+        <input type="text" asp-for="Age" class="form-control" id="age" placeholder="Enter age">
+    </div>
+    <div class="form-group">
+        <label for="address">Address</label>
+        <textarea asp-for="Address" class="form-control" id="address" placeholder="Enter Address"></textarea>
+    </div>
+    <button type="submit" class="btn btn-info">Update Student</button>
+</form>
+@if (TempData["message"] != null)
+{
+    <script>
+        alert('@TempData["message"]');
+    </script>
+}

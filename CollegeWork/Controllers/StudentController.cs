@@ -14,6 +14,8 @@ namespace CollegeWork.Controllers
         }
         public IActionResult Index()
         {
+            //IEnumerable<Student> students = _db.Students;
+
             List<Student> studentsList = _db.Students.ToList();
             return View(studentsList);
         }
