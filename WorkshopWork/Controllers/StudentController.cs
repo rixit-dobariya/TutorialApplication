@@ -63,7 +63,7 @@ namespace WorkshopWork.Controllers
         {
             if (ModelState.IsValid)
             {
-                if (student.Delete(student.Id.ToString()))
+                if (student.Delete(student))
                 {
                     TempData["message"] = "Deleted Successfully!";
                 }

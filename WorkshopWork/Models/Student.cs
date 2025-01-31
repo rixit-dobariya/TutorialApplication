@@ -45,12 +45,12 @@ namespace WorkshopWork.Models
             }
             return false;
         }
-        public bool Delete(string id)
+        public bool Delete(Student student)
         {
-            if (!string.IsNullOrEmpty(id))
+            if (!string.IsNullOrEmpty(student.Id.ToString()))
             {
                 SqlCommand cmd = new SqlCommand("delete from Students where Id=@Id", con);
-                cmd.Parameters.AddWithValue("Id", id);
+                cmd.Parameters.AddWithValue("Id", student.Id);
                 con.Open();
                 return cmd.ExecuteNonQuery() >= 1;
             }
