@@ -1,0 +1,32 @@
+﻿@model List<EmployeeModel>
+@{
+	ViewData["Title"] = "Display Employees";
+}
+<div>
+	<table class="table table-stripped">
+		<thead>
+			<tr>
+				<td>Id</td>
+				<td>Name</td>
+				<td>Department</td>
+				<td>Salary</td>
+				<td>Actions</td>
+			</tr>
+		</thead>
+		<tbody>
+			@foreach(EmployeeModel employee in Model)
+			{
+				<tr>
+					<td>@employee.Id</td>
+					<td>@employee.Name</td>
+					<td>@employee.Dept</td>
+					<td>@employee.Salary</td>
+					<td>
+						<a asp-action="Edit" asp-route-employeeId="@employee.Id">Edit</a>
+						<a asp-action="Delete" asp-route-employeeId="@employee.Id">Delete</a>
+					</td>
+				</tr>
+			}
+		</tbody>
+	</table>
+</div>

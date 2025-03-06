@@ -12,6 +12,8 @@ namespace WorkshopWork.Models
         public string Email { get; set; }
         public string Address { get; set; }
 
+
+
         SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=WorkshopStudent;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
 
        

@@ -57,13 +57,13 @@ namespace TutorialApplication.Areas.Admin.Controllers
             }
             return View();
         }
-        public IActionResult Edit(int? id)
+        public IActionResult Edit(int? categoryid)
         {
-            if (id == null && id < 0)
+            if (categoryid == null && categoryid < 0)
             {
                 return NotFound();
             }
-            Category? category = _unitOfWork.CategoryRepository.Get(e => e.Id == id);
+            Category? category = _unitOfWork.CategoryRepository.Get(e => e.Id == categoryid);
             //Category? category = _db.Categories.Find(id); 
             //can be used with only primary key
             //Category? category1 = _db.Categories.FirstOrDefault(e=>e.Id==id);

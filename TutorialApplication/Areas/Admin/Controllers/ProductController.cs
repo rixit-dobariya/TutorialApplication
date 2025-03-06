@@ -10,7 +10,7 @@ using TutorialApplication.Models;
 namespace TutorialApplication.Areas.Admin.Controllers
 {
     [Area("Admin")]
-    [Authorize(Roles = "Admin")]
+    //[Authorize(Roles = "Admin")]
     public class ProductController : Controller
     {
         private IUnitOfWork _unitOfWork;
@@ -18,6 +18,7 @@ namespace TutorialApplication.Areas.Admin.Controllers
         public ProductController(IUnitOfWork unitOfWork, IWebHostEnvironment webHostEnvironment)
         {
             _unitOfWork = unitOfWork;
+            _webHostEnvironment = webHostEnvironment;
             _webHostEnvironment = webHostEnvironment;
         }
         public IActionResult Index()
@@ -194,7 +195,7 @@ namespace TutorialApplication.Areas.Admin.Controllers
             List<Product> productsList = _unitOfWork.ProductRepository.GetAll(includeProperties:"Category").ToList();
             return Json(new { data = productsList });
         }
-        //[HttpDelete]
+        [HttpDelete]
         public IActionResult Delete(int? id)
         {
             if(id==null || id == 0)

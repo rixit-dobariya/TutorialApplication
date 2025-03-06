@@ -23,6 +23,8 @@ namespace WorkshopWork.Controllers
                 if (student.Insert(student))
                 {
                     TempData["message"] = "Added Successfully!";
+                    return RedirectToAction("Index");
+
                 }
                 else
                 {
@@ -45,6 +47,7 @@ namespace WorkshopWork.Controllers
                 if (student.Update(student))
                 {
                     TempData["message"] = "Updated Successfully!";
+                    return RedirectToAction("Index");
                 }
                 else
                 {
@@ -61,18 +64,25 @@ namespace WorkshopWork.Controllers
         [HttpPost]
         public IActionResult Delete(Student student)
         {
-            if (ModelState.IsValid)
+            if (student.Id!=0)
             {
                 if (student.Delete(student))
                 {
                     TempData["message"] = "Deleted Successfully!";
+                    return RedirectToAction("Index");
+
                 }
                 else
                 {
                     TempData["message"] = "Not added. Something went wrong!";
                 }
             }
+            else
+            {
+                TempData["message"] = "ID not found!";
+            }
             return View();
         }
     }
 }
+

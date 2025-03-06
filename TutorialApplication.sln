@@ -30,6 +30,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CollegeWork", "CollegeWork\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkshopWork", "WorkshopWork\WorkshopWork.csproj", "{3C77EBE9-B051-4716-845C-5C8A5E527BB4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkshopApi", "WorkshopApi\WorkshopApi.csproj", "{5E18AF68-F211-497A-B148-BB97D645B231}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTClassWork", "PTClassWork\PTClassWork.csproj", "{2A97CD11-E72C-4D80-8017-3D398B1EDE41}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -64,6 +68,14 @@ Global
 		{3C77EBE9-B051-4716-845C-5C8A5E527BB4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C77EBE9-B051-4716-845C-5C8A5E527BB4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C77EBE9-B051-4716-845C-5C8A5E527BB4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5E18AF68-F211-497A-B148-BB97D645B231}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5E18AF68-F211-497A-B148-BB97D645B231}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5E18AF68-F211-497A-B148-BB97D645B231}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5E18AF68-F211-497A-B148-BB97D645B231}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2A97CD11-E72C-4D80-8017-3D398B1EDE41}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2A97CD11-E72C-4D80-8017-3D398B1EDE41}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2A97CD11-E72C-4D80-8017-3D398B1EDE41}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2A97CD11-E72C-4D80-8017-3D398B1EDE41}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

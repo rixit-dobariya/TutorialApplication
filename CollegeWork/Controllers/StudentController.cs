@@ -40,6 +40,7 @@ namespace CollegeWork.Controllers
             Student student = _db.Students.Find(studentId);
             return View(student);
         }
+
         [HttpPost]
         public IActionResult Edit(Student student)
         {
