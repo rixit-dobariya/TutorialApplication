@@ -1,0 +1,6 @@
+﻿teacher 
+ - teacher name
+ subject
+ semester
+ salary
+ experience

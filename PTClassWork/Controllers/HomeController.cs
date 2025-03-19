@@ -6,20 +6,24 @@ namespace PTClassWork.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        private readonly IHttpContextAccessor context;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(IHttpContextAccessor context)
         {
-            _logger = logger;
+            this.context = context;
         }
 
         public IActionResult Index()
         {
+            //HttpContext.Session.SetInt32("userid", 1);
+            context.HttpContext.Session.SetInt32("RollNo", 15);
+            context.HttpContext.Session.SetString("Name", "Rixit");
             return View();
         }
 
         public IActionResult Privacy()
         {
+            //ViewData["userid"] = HttpContext.Session.GetInt32("userid");
             return View();
         }
         public IActionResult About()

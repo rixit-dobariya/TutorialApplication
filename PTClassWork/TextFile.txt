@@ -1,0 +1,32 @@
+﻿how to add session:
+	option 1:
+	Program.cs
+
+		-builder.Services.AddSession();
+		-app.useSession();
+
+	Anywhere:
+		Use it with
+		HttpContext.Session.SetString("name","value");
+		HttpContext.Session.GetString("name");
+
+	option 2:
+	Program.cs:
+		- builder.Services.AddSession();
+		- app.useSession();
+		- builder.Services.AddSingleton<IHttpContextAccessor,HttpContextAccessor>();
+	Controller:
+	  private readonly IHttpContextAccessor context;
+
+    public HomeController(IHttpContextAccessor context)
+    {
+        this.context = context;
+    }
+
+    public IActionResult Index()
+    {
+        //HttpContext.Session.SetInt32("userid", 1);
+        context.HttpContext.Session.SetInt32("RollNo", 15);
+        context.HttpContext.Session.SetString("Name", "Rixit");
+        return View();
+    }

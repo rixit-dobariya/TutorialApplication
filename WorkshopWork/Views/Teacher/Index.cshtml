@@ -1,0 +1,67 @@
+﻿@model IEnumerable<WorkshopWork.Models.TeacherModel>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Id
+            </th>
+            <th>
+                Teacher name
+            </th>
+            <th>
+                Subject
+            </th>
+            <th>
+                Salary
+            </th>
+            <th>
+               Experience
+            </th>
+            <th>
+                Semester
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Id
+            </td>
+            <td>
+                    @item.Name
+            </td>
+            <td>
+                    @item.Subject
+            </td>
+            <td>
+                    @item.Salary
+            </td>
+            <td>
+                @item.Experience
+            </td>
+            <td>
+                @item.Semester
+            </td>
+            <td>
+                    <a class="btn btn-dark" asp-action="Edit" asp-route-teacherId="@item.Id">Edit</a>
+                    <a class="btn btn-danger" asp-action="Delete" asp-route-teacherId="@item.Id">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
+@if(TempData["msg"]!=null){
+    <script>alert('@TempData["msg"]')</script>
+}

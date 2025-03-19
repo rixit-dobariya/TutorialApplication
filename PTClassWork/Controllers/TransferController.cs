@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Data.SqlClient;
 using PTClassWork.Models;
 
@@ -6,6 +7,13 @@ namespace PTClassWork.Controllers
 {
     public class TransferController : Controller
     {
+        private readonly IHttpContextAccessor context;
+
+        public TransferController(IHttpContextAccessor context)
+        {
+            this.context = context;
+        }
+
         public IActionResult Index()
         {
             return View();
@@ -13,12 +21,13 @@ namespace PTClassWork.Controllers
         [HttpPost]
         public IActionResult Index(TransferModel transferModel)
         {
-            TempData["ToAccountNo"] = transferModel.ToAccountNo;
-            TempData["ToAccountHolderName"] = transferModel.ToAccountHolderName;
-            TempData["AccountNo"] = transferModel.AccountNo;
-            TempData["AccountHolderName"] = transferModel.AccountHolderName;
-            TempData["Mode"] = transferModel.Mode;
-            TempData["Amount"] = transferModel.Amount.ToString();
+            context.HttpContext.Session.SetInt32("ToAccountNo", transferModel.ToAccountNo);
+            context.HttpContext.Session.SetString("ToAccountHolderName", transferModel.ToAccountHolderName);
+            context.HttpContext.Session.SetInt32("AccountNo", transferModel.AccountNo);
+            context.HttpContext.Session.SetString("AccountHolderName", transferModel.AccountHolderName);
+            context.HttpContext.Session.SetString("Mode", transferModel.Mode);
+            context.HttpContext.Session.SetString("Amount", transferModel.Amount.ToString());
+
             return RedirectToAction("Verification");
         }
         public IActionResult Verification()
@@ -32,15 +41,16 @@ namespace PTClassWork.Controllers
             //    Amount = Convert.ToDouble(TempData["Amount"].ToString()),
             //    Mode = (string)TempData["Mode"],
             //});
-            return View(new TransferModel()
-            {
-                AccountNo = (int)TempData["AccountNo"],
-                AccountHolderName = (string)TempData["AccountHolderName"],
-                ToAccountNo = (int)TempData["ToAccountNo"],
-                ToAccountHolderName = (string)TempData["ToAccountHolderName"],
-                Amount = Convert.ToDouble(TempData["Amount"].ToString()),
-                Mode = (string)TempData["Mode"],
-            });
+            //return View(new TransferModel()
+            //{
+            //    AccountNo = (int)TempData["AccountNo"],
+            //    AccountHolderName = (string)TempData["AccountHolderName"],
+            //    ToAccountNo = (int)TempData["ToAccountNo"],
+            //    ToAccountHolderName = (string)TempData["ToAccountHolderName"],
+            //    Amount = Convert.ToDouble(TempData["Amount"].ToString()),
+            //    Mode = (string)TempData["Mode"],
+            //});
+            return View();
         }
         [HttpPost]
         [ActionName("Verification")]

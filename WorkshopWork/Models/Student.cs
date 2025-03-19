@@ -1,22 +1,24 @@
 ﻿using Microsoft.Data.SqlClient;
 using System.ComponentModel.DataAnnotations;
 using System.Data;
+using System.Text.RegularExpressions;
 
 namespace WorkshopWork.Models
 {
     public class Student
     {
         public int Id { get; set; }
+        [Required(ErrorMessage = "Please enter name")]
         public string Name { get; set; }
+        [Required(ErrorMessage = "Please enter age")]
+        [Range(5, 200, ErrorMessage ="Age must be between 5 to 100")]
         public int Age { get; set; }
+        [Required(ErrorMessage = "Please enter email")]
         public string Email { get; set; }
+        [Required(ErrorMessage = "Please enter address")]
         public string Address { get; set; }
 
-
-
         SqlConnection con = new SqlConnection("Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=WorkshopStudent;Integrated Security=True;Connect Timeout=30;Encrypt=False;Trust Server Certificate=False;Application Intent=ReadWrite;Multi Subnet Failover=False");
-
-       
         public bool Insert(Student student)
         {
             if(!(string.IsNullOrEmpty(Name) && string.IsNullOrEmpty(student.Email) && string.IsNullOrEmpty(student.Address) && string.IsNullOrEmpty(student.Age.ToString())))

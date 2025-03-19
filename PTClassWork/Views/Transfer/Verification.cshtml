@@ -1,4 +1,5 @@
 ﻿@model PTClassWork.Models.TransferModel
+@inject IHttpContextAccessor context
 
 @{
     ViewData["Title"] = "Verification";
@@ -11,27 +12,27 @@
     <table class="table ">
         <tr class="form-group">
             <td> <label asp-for="AccountNo" class="control-label"></label></td>
-            <td> @Model.AccountNo</td>
+            <td> @context.HttpContext.Session.GetInt32("AccountNo")</td>
         </tr>
         <tr class="form-group">
             <td><label asp-for="AccountHolderName" class="control-label"></label></td>
-            <td> @Model.AccountHolderName</td>
+            <td>@context.HttpContext.Session.GetString("AccountHolderName")</td>
         </tr>
         <tr class="form-group">
             <td> <label asp-for="ToAccountNo" class="control-label"></label></td>
-            <td>@Model.ToAccountNo</td>
+            <td> @context.HttpContext.Session.GetInt32("ToAccountNo")</td>
         </tr>
         <tr class="form-group">
             <td><label asp-for="ToAccountHolderName" class="control-label"></label></td>
-            <td>@Model.ToAccountHolderName</td>
+            <td>@context.HttpContext.Session.GetString("ToAccountHolderName")</td>
         </tr>
         <tr class="form-group">
             <td><label asp-for="Amount" class="control-label"></label></td>
-            <td> @Model.Amount</td>
+            <td> @context.HttpContext.Session.GetString("Amount")</td>
         </tr>
         <tr class="form-group">
             <td><label asp-for="Mode" class="control-label"></label></td>
-            <td>@Model.Mode</td>
+            <td>@context.HttpContext.Session.GetString("Mode")</td>
         </tr>
         <tr class="form-group">
             <td colspan="2">
