@@ -34,6 +34,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WorkshopApi", "WorkshopApi\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PTClassWork", "PTClassWork\PTClassWork.csproj", "{2A97CD11-E72C-4D80-8017-3D398B1EDE41}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StudentWebApi", "StudentWebApi\StudentWebApi.csproj", "{B64415B1-5E2C-4C6A-B30E-F972305121FA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PracticeApplication", "PracticeApplication\PracticeApplication.csproj", "{6D6A4C42-3117-400B-8B91-CCD012435CEA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -76,6 +80,14 @@ Global
 		{2A97CD11-E72C-4D80-8017-3D398B1EDE41}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2A97CD11-E72C-4D80-8017-3D398B1EDE41}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2A97CD11-E72C-4D80-8017-3D398B1EDE41}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B64415B1-5E2C-4C6A-B30E-F972305121FA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B64415B1-5E2C-4C6A-B30E-F972305121FA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B64415B1-5E2C-4C6A-B30E-F972305121FA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B64415B1-5E2C-4C6A-B30E-F972305121FA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D6A4C42-3117-400B-8B91-CCD012435CEA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D6A4C42-3117-400B-8B91-CCD012435CEA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D6A4C42-3117-400B-8B91-CCD012435CEA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D6A4C42-3117-400B-8B91-CCD012435CEA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

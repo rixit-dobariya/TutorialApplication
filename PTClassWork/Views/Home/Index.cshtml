@@ -1,12 +1,34 @@
-﻿@inject IHttpContextAccessor context
+﻿@inject IHttpContextAccessor context 
+@using Microsoft.AspNetCore.Http;
 @{
     ViewData["Title"] = "Home Page";
 }
+@if(Context?.Session.GetString("username")!=null)
+{
+    <div class="text-center">
+        <h1 class="display-4">Welcome</h1>
+        <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    </div>
 
-<div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://learn.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
-</div>
+    @context.HttpContext.Session.GetInt32("RollNo")
+    @context.HttpContext.Session.GetString("Name")
 
-@context.HttpContext.Session.GetInt32("RollNo")
-@context.HttpContext.Session.GetString("Name")
+    @if(context.HttpContext.Session.Get("username")!=null){
+        <h1>Hello, @context.HttpContext.Session.GetString("username")</h1>
+        <a asp-controller="Account" asp-action="Logout">Logout</a>
+    }
+    else{
+        <a asp-controller="Account" asp-action="Login">Login</a>
+    }
+
+
+    @if (Context?.Session.Get("username") != null)
+    {
+        <h1>Hello, @Context.Session.GetString("username")</h1>
+        <a asp-controller="Account" asp-action="Logout">Logout</a>
+    }
+    else
+    {
+        <a asp-controller="Account" asp-action="Login">Login</a>
+    }
+}

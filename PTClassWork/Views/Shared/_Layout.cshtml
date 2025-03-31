@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http;
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -40,7 +41,19 @@
                                 <li><a class="dropdown-item" asp-controller="Employee" asp-action="Create">Add Employee</a></li>
                             </ul>
                         </li>
-                        
+                        @if(Context?.Session.GetString("username")!=null){
+                            <div class="d-flex">
+                                <span>@Context?.Session.GetString("username")</span>
+                                <li class="nav-item">
+                                    <a class="nav-link text-dark" href="/Account/Logout">Logout</a>
+                                </li>
+                            </div>
+                        }
+                        else{
+                            <li class="nav-item">
+                                <a class="nav-link text-dark" href="/Account/Login">Login</a>
+                            </li>
+                        }
                     </ul>
                 </div>
             </div>

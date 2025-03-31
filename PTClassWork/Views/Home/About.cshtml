@@ -1,7 +1,8 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Http;
+@{
 	ViewData["Title"] = "About us";
 }
-
+@if(Context.Session.GetString("username")!=null){
 <p>
 	From ViewData:<br />
 	Company Name: @ViewData["CompanyName"]
@@ -14,3 +15,4 @@
 	<br />
 	Company Name:@TempData["CompanyName"]
 </p>
+}

@@ -4,40 +4,42 @@
 @{
     ViewData["Title"] = "Verification";
 }
+@if (Context?.Session.GetString("username") != null)
+{
+    <h1>Index</h1>
 
-<h1>Index</h1>
-
-<h4>Transfer Amount Verification</h4>
-<form asp-action="Verification" method="post">
-    <table class="table ">
-        <tr class="form-group">
-            <td> <label asp-for="AccountNo" class="control-label"></label></td>
-            <td> @context.HttpContext.Session.GetInt32("AccountNo")</td>
-        </tr>
-        <tr class="form-group">
-            <td><label asp-for="AccountHolderName" class="control-label"></label></td>
-            <td>@context.HttpContext.Session.GetString("AccountHolderName")</td>
-        </tr>
-        <tr class="form-group">
-            <td> <label asp-for="ToAccountNo" class="control-label"></label></td>
-            <td> @context.HttpContext.Session.GetInt32("ToAccountNo")</td>
-        </tr>
-        <tr class="form-group">
-            <td><label asp-for="ToAccountHolderName" class="control-label"></label></td>
-            <td>@context.HttpContext.Session.GetString("ToAccountHolderName")</td>
-        </tr>
-        <tr class="form-group">
-            <td><label asp-for="Amount" class="control-label"></label></td>
-            <td> @context.HttpContext.Session.GetString("Amount")</td>
-        </tr>
-        <tr class="form-group">
-            <td><label asp-for="Mode" class="control-label"></label></td>
-            <td>@context.HttpContext.Session.GetString("Mode")</td>
-        </tr>
-        <tr class="form-group">
-            <td colspan="2">
-                <input type="submit" value="Confirm Payment" class="btn btn-primary" />
-            </td>
-        </tr>
-    </table>
-</form>
+    <h4>Transfer Amount Verification</h4>
+    <form asp-action="Verification" method="post">
+        <table class="table ">
+            <tr class="form-group">
+                <td> <label asp-for="AccountNo" class="control-label"></label></td>
+                <td> @context.HttpContext.Session.GetInt32("AccountNo")</td>
+            </tr>
+            <tr class="form-group">
+                <td><label asp-for="AccountHolderName" class="control-label"></label></td>
+                <td>@context.HttpContext.Session.GetString("AccountHolderName")</td>
+            </tr>
+            <tr class="form-group">
+                <td> <label asp-for="ToAccountNo" class="control-label"></label></td>
+                <td> @context.HttpContext.Session.GetInt32("ToAccountNo")</td>
+            </tr>
+            <tr class="form-group">
+                <td><label asp-for="ToAccountHolderName" class="control-label"></label></td>
+                <td>@context.HttpContext.Session.GetString("ToAccountHolderName")</td>
+            </tr>
+            <tr class="form-group">
+                <td><label asp-for="Amount" class="control-label"></label></td>
+                <td> @context.HttpContext.Session.GetString("Amount")</td>
+            </tr>
+            <tr class="form-group">
+                <td><label asp-for="Mode" class="control-label"></label></td>
+                <td>@context.HttpContext.Session.GetString("Mode")</td>
+            </tr>
+            <tr class="form-group">
+                <td colspan="2">
+                    <input type="submit" value="Confirm Payment" class="btn btn-primary" />
+                </td>
+            </tr>
+        </table>
+    </form>
+}
