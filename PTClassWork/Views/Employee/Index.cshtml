@@ -2,9 +2,7 @@
 @{
 	ViewData["Title"] = "Display Employees";
 }
-@if (Context?.Session.GetString("username") != null)
-{
-	<div>
+<div>
 	<table class="table table-stripped">
 		<thead>
 			<tr>
@@ -32,4 +30,3 @@
 		</tbody>
 	</table>
 </div>
-}

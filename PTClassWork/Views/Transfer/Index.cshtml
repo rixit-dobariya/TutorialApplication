@@ -3,48 +3,46 @@
 @{
     ViewData["Title"] = "Index";
 }
-@if (Context?.Session.GetString("username") != null)
-{
-    <h1>Index</h1>
 
-    <h4>Transfer Amount</h4>
-    <form asp-action="Index" method="post">
-        <table width="100%">
-            <tr class="form-group">
-                <td> <label asp-for="AccountNo" class="control-label"></label></td>
-                <td> <input asp-for="AccountNo" class="form-control" /></td>
-            </tr>
-            <tr class="form-group">
-                <td><label asp-for="AccountHolderName" class="control-label"></label></td>
-                <td><input asp-for="AccountHolderName" class="form-control" /></td>
-            </tr >
-            <tr class="form-group">
-                <td> <label asp-for="ToAccountNo" class="control-label"></label></td>
-                <td><input asp-for="ToAccountNo" class="form-control" /></td>
-            </tr>
-            <tr class="form-group">
-                <td><label asp-for="ToAccountHolderName" class="control-label"></label></td>
-                <td><input asp-for="ToAccountHolderName" class="form-control" /></td>
-            </tr>
-            <tr class="form-group">
-                <td><label asp-for="Amount" class="control-label"></label></td>
-                <td> <input asp-for="Amount" class="form-control" /></td>
-            </tr>
-            <tr class="form-group">
-                <td><label asp-for="Mode" class="control-label"></label></td>
-                <td><input asp-for="Mode" class="form-control" /></td>
-            </tr>
-            <tr class="form-group">
-                <td colspan="2">
-                    <input type="submit" value="Transfer Amount" class="btn btn-primary" />
-                </td>
-            </tr>
-        </table>
-    </form>
+<h1>Index</h1>
 
-    @if(TempData["msg"]!=null){
-        <script>
-            alert('@TempData["msg"]');
-        </script>
-    }
+<h4>Transfer Amount</h4>
+<form asp-action="Index" method="post">
+    <table width="100%">
+        <tr class="form-group">
+            <td> <label asp-for="AccountNo" class="control-label"></label></td>
+            <td> <input asp-for="AccountNo" class="form-control" /></td>
+        </tr>
+        <tr class="form-group">
+            <td><label asp-for="AccountHolderName" class="control-label"></label></td>
+            <td><input asp-for="AccountHolderName" class="form-control" /></td>
+        </tr >
+        <tr class="form-group">
+            <td> <label asp-for="ToAccountNo" class="control-label"></label></td>
+            <td><input asp-for="ToAccountNo" class="form-control" /></td>
+        </tr>
+        <tr class="form-group">
+            <td><label asp-for="ToAccountHolderName" class="control-label"></label></td>
+            <td><input asp-for="ToAccountHolderName" class="form-control" /></td>
+        </tr>
+        <tr class="form-group">
+            <td><label asp-for="Amount" class="control-label"></label></td>
+            <td> <input asp-for="Amount" class="form-control" /></td>
+        </tr>
+        <tr class="form-group">
+            <td><label asp-for="Mode" class="control-label"></label></td>
+            <td><input asp-for="Mode" class="form-control" /></td>
+        </tr>
+        <tr class="form-group">
+            <td colspan="2">
+                <input type="submit" value="Transfer Amount" class="btn btn-primary" />
+            </td>
+        </tr>
+    </table>
+</form>
+
+@if(TempData["msg"]!=null){
+    <script>
+        alert('@TempData["msg"]');
+    </script>
 }
