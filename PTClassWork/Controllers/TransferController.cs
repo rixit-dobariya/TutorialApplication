@@ -58,14 +58,16 @@ namespace PTClassWork.Controllers
         {
             TransferModel transferModel = new TransferModel()
             {
-                AccountNo = (int)TempData["AccountNo"],
-                AccountHolderName = (string)TempData["AccountHolderName"],
-                ToAccountNo = (int)TempData["ToAccountNo"],
-                ToAccountHolderName = (string)TempData["ToAccountHolderName"],
-                Amount = Convert.ToDouble(TempData["Amount"].ToString()),
-                Mode = (string)TempData["Mode"],
+                AccountNo = (int)context.HttpContext.Session.GetInt32("AccountNo"),
+                AccountHolderName = context.HttpContext.Session.GetString("AccountHolderName"),
+                ToAccountNo = (int)context.HttpContext.Session.GetInt32("ToAccountNo"),
+                ToAccountHolderName = context.HttpContext.Session.GetString("ToAccountHolderName"),
+                Amount = Convert.ToDouble(context.HttpContext.Session.GetString("Amount")),
+                Mode = context.HttpContext.Session.GetString("Mode"),
             };
-            
+            Insert(transferModel);
+
+
             return RedirectToAction("Index");
         }
         void Insert(TransferModel transferModel)

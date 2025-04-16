@@ -1,0 +1,31 @@
+﻿@model Product
+<form method="post">
+	<table>
+		<tr>
+			<td>Name: </td>
+			<td>
+				<input asp-for="ProductName"/>
+				<span asp-validation-for="ProductName"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>Price: </td>
+			<td>
+				<input asp-for="Price" />
+				<span asp-validation-for="Price"></span>
+			</td>
+		</tr>
+		<tr>
+			<td>Quantity: </td>
+			<td>
+				<input asp-for="Quantity" />
+				<span asp-validation-for="Quantity"></span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" value="Add Product" />
+			</td>
+		</tr>
+	</table>
+</form>

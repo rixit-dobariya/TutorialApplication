@@ -1,0 +1,22 @@
+﻿@model List<Product>
+<a class="btn btn-primary" asp-action="Create">Add Product</a>
+<table class="table">
+	<tr>
+		<th>Id</th>
+		<th>Product Name</th>
+		<th>Price</th>
+		<th>Quantity</th>
+	</tr>
+	@foreach(Product obj  in Model){
+		<tr>
+			<td>@obj.Id</td>
+			<td>@obj.ProductName</td>
+			<td>@obj.Price</td>
+			<td>@obj.Quantity</td>
+			<td>
+				<a asp-action="Edit" asp-route-id="@obj.Id" class="btn btn-info">Edit</a>
+				<a asp-action="Delete" asp-route-id="@obj.Id" class="btn btn-delete">Delete</a>
+			</td>
+		</tr>
+	}
+</table>

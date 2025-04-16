@@ -1,0 +1,21 @@
+﻿@model User
+<form method="post">
+	<table class="table">
+		<tr>
+			<td>Email</td>
+			<td><input asp-for="Email"/>
+				<span asp-validation-for="Email" class="text-danger"></span></td>
+		</tr>
+		<tr>
+			<td>Password</td>
+			<td><input asp-for="Password" />
+				<span asp-validation-for="Password" class="text-danger"></span>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="2">
+				<input type="submit" class="btn btn-primary" name="submit" value="Login"/>
+			</td>
+		</tr>
+	</table>
+</form>
