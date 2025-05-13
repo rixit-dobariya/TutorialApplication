@@ -1,0 +1,33 @@
+﻿@model Student
+<form method="post">
+	<h2>Update Student</h2>
+
+	<div class="form-control">
+		<label asp-for="Name"></label>
+		<input asp-for="Name" />
+		<span asp-validation-for="Name" class="text-danger"></span>
+	</div>
+	<div class="form-control">
+		<label asp-for="Email"></label>
+		<input asp-for="Email" />
+		<span asp-validation-for="Email" class="text-danger"></span>
+	</div>
+	<div class="form-control">
+		<label asp-for="Age"></label>
+		<input asp-for="Age" />
+		<span asp-validation-for="Age" class="text-danger"></span>
+	</div>
+	<div class="form-control">
+		<label asp-for="Sem"></label>
+		<input asp-for="Sem" />
+		<span asp-validation-for="Sem" class="text-danger"></span>
+	</div>
+	<div>
+		<label asp-for="Branch"></label>
+		<select asp-items="@(new List<SelectListItem>(){new SelectListItem("Computer Science","cs"),new SelectListItem("Information Technology","it"),new SelectListItem("Civil Engineering","civil")})" asp-for="Branch"></select>
+		<span asp-validation-for="Branch" class="text-danger"></span>
+	</div>
+	<div class="form-control">
+		<input type="submit" class="btn btn-info" value="Update Student" />
+	</div>
+</form>
